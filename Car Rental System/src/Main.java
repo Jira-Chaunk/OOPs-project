@@ -122,6 +122,41 @@ class CarRentalSystem{
         }
     }
 
+    public void returnCar(Car car){
+        Rental rentalToRemove = null;
+        for(Rental rental:rentals){
+            if (rental.getCar() == car) {
+                rentalToRemove = rental;
+                break;
+            }
+
+        }
+        if (rentalToRemove != null) {
+            rentals.remove(rentalToRemove);
+            car.returnCar();
+            System.out.println("Car returned successfully !");
+        } else {
+            System.out.println("car was not rented");
+        }
+
+    }
+
+    public void menue(){
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("===== Car Rental System =====");
+            System.out.println("1.Rent a car");
+            System.out.println("2.Return a car");
+            System.out.println("3.Exit");
+            System.out.println("=============================");
+            System.out.println("Enter Your Choice");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine(); //consumes new line 
+        }
+    }
+
     public class Main {
     
         public static void main(String[] args) {
